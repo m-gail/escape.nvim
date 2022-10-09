@@ -52,7 +52,11 @@ local function apply_converter_to_selection(convert)
 end
 
 function M.escape()
-    apply_converter_to_selection(converters.escape_text)
+    apply_converter_to_selection(converters.escape)
+end
+
+function M.encode_uri_component()
+    apply_converter_to_selection(converters.encode_uri_component)
 end
 
 return M
