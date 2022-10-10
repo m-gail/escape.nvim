@@ -29,14 +29,18 @@ function M.apply_converter(convert)
         lines = vim.tbl_map(convert, lines)
     elseif mode == VISUAL then
         local new_lines = {}
-        for index, line in ipairs(lines) do
-            if index == 1 then
-                table.insert(new_lines, line:sub(1, start_col - 1) .. convert(line:sub(start_col, -1)))
-            elseif index == vim.tbl_count(lines) then
-                table.insert(new_lines, convert(line:sub(0, end_col)) .. line:sub(end_col + 1, -1))
-            else
-                table.insert(new_lines, convert(line))
+        if vim.tbl_count(lines) > 1 then
+            for index, line in ipairs(lines) do
+                if index == 1 then
+                    table.insert(new_lines, line:sub(1, start_col - 1) .. convert(line:sub(start_col, -1)))
+                elseif index == vim.tbl_count(lines) then
+                    table.insert(new_lines, convert(line:sub(0, end_col)) .. line:sub(end_col + 1, -1))
+                else
+                    table.insert(new_lines, convert(line))
+                end
             end
+        else
+            table.insert(new_lines, lines[1]:sub(1, start_col - 1) .. convert(lines[1]:sub(start_col, end_col)) .. lines[1]:sub(end_col + 1, -1))
         end
         lines = new_lines
     elseif mode == VISUAL_BLOCK then

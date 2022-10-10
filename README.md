@@ -2,7 +2,7 @@
 
 escape.nvim is a plugin, which will replace your visual selection with an escaped string.
 
-# Usage
+## Usage
 
 Setup a visual mode binding to any of the functions available
 
@@ -10,17 +10,17 @@ Setup a visual mode binding to any of the functions available
 vim.keymap.set("v", "<leader>e", require("escpape").escape, { noremap = true, silent = true })
 ```
 
-# Available functions
+## Available functions
 
 For more detail see `:help escape-nvim-functions`
 
-escape
+* escape
 
 ```
 Some "Random String" -> Some \"Random String\"
 ```
 
-encode\_uri\_component
+* encode\_uri\_component
 
 ```
 query string with a / -> query%20string%20with%20a%20%2F
