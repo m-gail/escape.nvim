@@ -7,7 +7,7 @@ local VISUAL = "v"
 local VISUAL_LINE = "V"
 local VISUAL_BLOCK = "\22"
 
-local function apply_converter_to_selection(convert)
+function M.apply_converter(convert)
     -- getpos is 1-indexed
     local start_position = vim.fn.getpos('v')
     local end_position = vim.fn.getpos('.')
@@ -52,11 +52,11 @@ local function apply_converter_to_selection(convert)
 end
 
 function M.escape()
-    apply_converter_to_selection(converters.escape)
+    M.apply_converter(converters.escape)
 end
 
 function M.encode_uri_component()
-    apply_converter_to_selection(converters.encode_uri_component)
+    M.apply_converter(converters.encode_uri_component)
 end
 
 return M

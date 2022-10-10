@@ -1,0 +1,41 @@
+*escape-nvim.txt* escape.nvim
+*escape.nvim*
+
+Author: Michael Gail
+Version: 0.1.0
+Homepage: <https://github.com/m-gail/escape.nvim>
+License: MIT License
+
+==============================================================================
+INTRODUCTION                                                     *escape-nvim*
+
+escape.nvim is a plugin, which will replace your visual selection 
+with an escaped string.
+
+==============================================================================
+USAGE                                                      *escape-nvim-usage*
+
+Setup a visual mode binding to any of the functions available
+>
+    vim.keymap.set("v", "<leader>e", require("escpape").escape, { noremap = true, silent = true })
+<
+
+==============================================================================
+FUNCTIONS                                              *escape-nvim-functions*
+
+escape()                                                     *escape.escape()*
+    replaces the visual selection as follows:
+    Some "Random String" -> Some \"Random String\"
+
+encode_uri_component()                         *escape.encode_uri_component()*
+    replaces the visual selection as follows:
+    query string with a / -> query%20string%20with%20a%20%2F
+
+apply_converter({converter})                        *escape.apply_converter()*
+    replaces the visual selection by using the passed function
+
+    Parameters: ~
+        {converter} (function)  Function to apply to the visual selection
+                                Is called for each line, takes the line as
+                                an argument and returns the new content of
+                                the line
