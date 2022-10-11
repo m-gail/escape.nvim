@@ -17,7 +17,7 @@ USAGE                                                      *escape-nvim-usage*
 
 Setup a visual mode binding to any of the functions available
 >
-    vim.keymap.set("v", "<leader>e", require("escpape").escape, { noremap = true, silent = true })
+    vim.keymap.set("v", "<leader>e", require("escape").escape, { noremap = true, silent = true })
 <
 
 ==============================================================================

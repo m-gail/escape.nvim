@@ -7,7 +7,7 @@ escape.nvim is a plugin, which will replace your visual selection with an escape
 Setup a visual mode binding to any of the functions available
 
 ```lua
-vim.keymap.set("v", "<leader>e", require("escpape").escape, { noremap = true, silent = true })
+vim.keymap.set("v", "<leader>e", require("escape").escape, { noremap = true, silent = true })
 ```
 
 ## Available functions
