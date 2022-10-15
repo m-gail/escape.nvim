@@ -1,14 +1,18 @@
 # escape.nvim
 
-escape.nvim is a plugin, which will replace your visual selection with an escaped string.
+escape.nvim is a plugin, which will replace any text in your buffer with an escaped string.
+
+It can be used with visual mode and motions such as `iw`.
 
 ## Usage
 
-Setup a visual mode binding to any of the functions available
+Setup a binding to any of the functions available
 
 ```lua
-vim.keymap.set("v", "<leader>e", require("escape").escape, { noremap = true, silent = true })
+vim.keymap.set({"n", "v"}, "<leader>e", require("escape").escape, { noremap = true, silent = true })
 ```
+
+You can then use it in visual mode, or with a motion (e.g. `<leader>eiw`)
 
 ## Available functions
 
