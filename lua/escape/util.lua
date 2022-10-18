@@ -5,6 +5,11 @@ local VISUAL = "char"
 local VISUAL_LINE = "line"
 local VISUAL_BLOCK = "block"
 
+---Applies a converter to the text in a range
+---@param convert fun(line:string):string
+---@param start_position table
+---@param end_position table
+---@param mode "char" | "line" | "block"
 function M.apply_converter_to_range(convert, start_position, end_position, mode)
     local start_row, start_col = table.unpack(start_position)
     local end_row, end_col = table.unpack(end_position)

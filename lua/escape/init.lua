@@ -4,6 +4,8 @@ local operatorfunc = require("escape.operatorfunc")
 local api = vim.api
 local M = {}
 
+---Apply the given function to the selected visual area or text object
+---@param convert fun(line:string):string
 function M.apply_converter(convert)
     operatorfunc.convert = convert
     api.nvim_set_option('operatorfunc', "v:lua.require'escape.operatorfunc'.operatorfunc")
