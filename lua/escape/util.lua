@@ -5,14 +5,16 @@ local VISUAL = "char"
 local VISUAL_LINE = "line"
 local VISUAL_BLOCK = "block"
 
+local unpack_table = table.unpack or unpack;
+
 ---Applies a converter to the text in a range
 ---@param convert fun(line:string):string
 ---@param start_position table
 ---@param end_position table
 ---@param mode "char" | "line" | "block"
 function M.apply_converter_to_range(convert, start_position, end_position, mode)
-    local start_row, start_col = table.unpack(start_position)
-    local end_row, end_col = table.unpack(end_position)
+    local start_row, start_col = unpack_table(start_position)
+    local end_row, end_col = unpack_table(end_position)
 
     if start_row == end_row and end_col < start_col then
         end_col, start_col = start_col, end_col
