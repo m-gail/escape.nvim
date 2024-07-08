@@ -40,7 +40,6 @@ function M.apply_converter_to_range(convert, start_position, end_position, mode)
                 end
             end
         else
-            print(lines[1] .. start_row .. start_col .. end_row .. end_col)
             table.insert(
                 new_lines,
                 lines[1]:sub(1, start_col - 1) ..
